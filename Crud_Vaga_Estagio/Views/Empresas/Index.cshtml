@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Crud_Vaga_Estagio.Models.Empresa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+
+    .link {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+
+<h1>Empresas</h1>
+
+<p>
+    <a asp-action="Create" class="link">Adicionar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cnpj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cnpj)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Especialidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep)
+                </td>
+                <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="link">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="link">Detalhe</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="link">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
